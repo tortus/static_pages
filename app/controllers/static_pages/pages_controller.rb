@@ -17,14 +17,15 @@ module StaticPages
 
     def render_page(page_name)
       page_name = page_name.to_s
-      raise ActiveRecord::RecordNotFound unless is_safe?(page_name)
+      logger.debug "PagesController#render_page page_name = #{page_name.inspect}"
+      raise_404 unless is_safe?(page_name)
 
       respond_to do |format|
         format.html do
           begin
             render page_name
           rescue ActionView::MissingTemplate
-            raise ActiveRecord::RecordNotFound
+            raise_404
           end
         end
       end
@@ -32,6 +33,10 @@ module StaticPages
 
     def is_safe?(page_name)
       not (page_name.nil? or page_name =~ /[^\w\w_\-]/)
+    end
+
+    def raise_404
+      raise ActionController::RoutingError.new("Page Not Found")
     end
 
   end
