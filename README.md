@@ -46,3 +46,8 @@ ActionController::RoutingException is raised.
 
 If the template isn't found, the ActionView::TemplateNotFound
 exception is caught and re-thrown as ActionController::RoutingError.
+
+Non-HTML Formats
+----------------
+
+Currently the pages controller only responds to the HTML format.
