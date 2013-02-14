@@ -23,5 +23,11 @@ module StaticPages
       assert_equal(true, @controller.send(:is_safe?, "a1_-"))
     end
 
+    test "#show raises RoutingError if params[:page] is not safe" do
+      assert_raise ActionController::RoutingError do
+        get :show, :page => "!", :use_route => :static_pages
+      end
+    end
+
   end
 end
