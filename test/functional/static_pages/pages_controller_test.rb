@@ -15,5 +15,13 @@ module StaticPages
       assert_template "dummy_page"
     end
 
+    test "#is_safe? returns false for pages with non-alpha-numeric characters" do
+      assert_equal(false, @controller.send(:is_safe?, "!"))
+    end
+
+    test "#is_safe? returns true for pages with letters, numbers, underscores, and minuses" do
+      assert_equal(true, @controller.send(:is_safe?, "a1_-"))
+    end
+
   end
 end
