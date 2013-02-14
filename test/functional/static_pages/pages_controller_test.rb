@@ -25,13 +25,23 @@ module StaticPages
       assert_equal(false, @controller.send(:is_safe?, "!"))
     end
 
+    test "#is_safe? returns false if page_name is not a string" do
+      assert_equal(false, @controller.send(:is_safe?, {:fu => "bar"}))
+    end
+
     test "#is_safe? returns true for pages with letters, numbers, underscores, and minuses" do
       assert_equal(true, @controller.send(:is_safe?, "a1_-"))
     end
 
-    test "#show raises RoutingError if params[:page] is not safe" do
+    test "#show raises ActionController::RoutingError if params[:page] is not safe" do
       assert_raise ActionController::RoutingError do
         get :show, :page => "!", :use_route => :static_pages
+      end
+    end
+
+    test "#show raises ActionController::RoutingError if params[:page] is not a string" do
+      assert_raise ActionController::RoutingError do
+        get :show, :page => {:action => "index"}, :use_route => :static_pages
       end
     end
 

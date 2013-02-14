@@ -16,8 +16,6 @@ module StaticPages
   private
 
     def render_page(page_name)
-      page_name = page_name.to_s
-      logger.debug "PagesController#render_page page_name = #{page_name.inspect}"
       raise_404 unless is_safe?(page_name)
 
       respond_to do |format|
@@ -32,7 +30,7 @@ module StaticPages
     end
 
     def is_safe?(page_name)
-      not (page_name.nil? or page_name =~ /[^\w\w_\-]/)
+      page_name.is_a?(String) and not (page_name.nil? or page_name =~ /[^\w\w_\-]/)
     end
 
     def raise_404
