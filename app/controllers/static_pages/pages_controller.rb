@@ -3,6 +3,8 @@ require_dependency "static_pages/application_controller"
 module StaticPages
   class PagesController < ApplicationController
 
+    layout :application
+
     def index
       render_page("index")
     end
