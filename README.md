@@ -19,16 +19,22 @@ a page:
 
 Change '/' to whatever path you would prefer pages being accessible at.
 
-Usage
------
+Creating a Page
+---------------
 
 1. Create a template in *app/views/static_pages/pages/*,
    for example: *app/views/static_pages/pages/test.html.erb*
 2. Visit "/test" in your browser
-3. That's it!
 
 If you create index.html, it will be used as your site's home page if you have
 no other "root" specified.
+
+Linking to a Page
+-----------------
+
+Use the **static_pages.page_path** helper:
+
+    static_pages.page_path("page_template_name_here")
 
 How it works
 ------------
