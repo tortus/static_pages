@@ -22,7 +22,7 @@ Change '/' to whatever path you would prefer pages being accessible at.
 Usage
 -----
 
-1. Create a template in app/views/static_pages/pages, for example: test.html.erb
+1. Create a template in app/views/static_pages/pages/, for example: app/views/static_pages/pages/test.html.erb
 2. Visit "/test" in your browser
 3. That's it!
 
