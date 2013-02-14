@@ -38,13 +38,17 @@ Use the **static_pages.page_path** helper:
 How it works
 ------------
 
-Uses a wildcard route:
+The engine uses the following routes:
 
     match ':page(.:format)' => 'pages#show', :as => :page
+    root :to => 'pages#index'
 
-The controller functionality basically boils down to:
+The controller functionality boils down to the following, after security
+checks:
 
-    render params[:page]
+    def show
+      render params[:page]
+    end
 
 If the template isn't found, the ActionView::TemplateNotFound
 exception is caught and re-thrown as ActionController::RoutingError.
