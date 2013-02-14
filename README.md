@@ -29,8 +29,8 @@ Usage
 If you create index.html, it will be used as your site's home page if you have
 no other "root" specified.
 
-Additional Notes
-----------------
+How it works
+------------
 
 Uses a wildcard route:
 
@@ -40,12 +40,15 @@ The controller functionality basically boils down to:
 
     render params[:page]
 
-It ensures that params[:page] is a string, and that it only contains
-alpha-numeric characters. If params[:page] is unsafe, an
-ActionController::RoutingException is raised.
-
 If the template isn't found, the ActionView::TemplateNotFound
 exception is caught and re-thrown as ActionController::RoutingError.
+
+Security
+--------
+
+The pages controller ensures that params[:page] is a string, and that it
+only contains alpha-numeric characters before calling render. If the page
+does not meet these criteria, an ActionController::RoutingException is raised.
 
 Non-HTML Formats
 ----------------
