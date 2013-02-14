@@ -26,4 +26,23 @@ Usage
 2. Visit "/test" in your browser
 3. That's it!
 
-If you create index.html, it will be used as your site's home page.
+If you create index.html, it will be used as your site's home page if you have
+no other "root" specified.
+
+Additional Notes
+----------------
+
+Uses a wildcard route:
+
+    match ':page(.:format)' => 'pages#show', :as => :page
+
+The controller functionality basically boils down to:
+
+    render params[:page]
+
+It ensures that params[:page] is a string, and that it only contains
+alpha-numeric characters. If params[:page] is unsafe, an
+ActionController::RoutingException is raised.
+
+If the template isn't found, the ActionView::TemplateNotFound
+exception is caught and re-thrown as ActionController::RoutingError.
