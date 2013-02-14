@@ -11,9 +11,8 @@ Add this line to your Gemfile, and run bundle install:
 
     gem 'static_pages', :git => 'https://github.com/tortustechnologies/static_pages.git'
 
-Add this line to config/routes.rb, probably below everything else so
-you don't accidentally overwrite another controller's routes by adding
-a page:
+Add this line to the bottom of *config/routes.rb* (or elsewhere if you know what you're
+doing):
 
     mount StaticPages::Engine, :at => '/'
 
@@ -24,7 +23,7 @@ Creating a Page
 
 1. Create a template in *app/views/static_pages/pages/*,
    for example: *app/views/static_pages/pages/test.html.erb*
-2. Visit "/test" in your browser
+2. Visit */test* in your browser
 
 If you create index.html, it will be used as your site's home page if you have
 no other "root" specified.
