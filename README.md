@@ -20,7 +20,7 @@ doing):
 mount StaticPages::Engine, :at => '/'
 ```
 
-Change '/' to whatever path you would prefer pages being accessible at.
+Change '/' to whatever path you would prefer pages to be accessible at.
 
 Creating a Page
 ---------------
