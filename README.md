@@ -9,7 +9,7 @@ Installation
 
 Add this line to your Gemfile, and run bundle install:
 
-    gem 'static_pages', :git => 'https://github.com/tortustechnologies/static_pages.git'
+    gem 'static_pages', :git => 'https://github.com/tortus/static_pages.git'
 
 Add this line to the bottom of *config/routes.rb* (or elsewhere if you know what you're
 doing):
