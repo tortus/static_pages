@@ -47,7 +47,7 @@ How it works
 The engine uses the following routes:
 
 ```ruby
-match ':page(.:format)' => 'pages#show', :as => :page
+match ':page(.:format)' => 'pages#show', :as => :page, :via => :get
 root :to => 'pages#index'
 ```
 
