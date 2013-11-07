@@ -9,16 +9,16 @@ Installation
 
 Add this line to your Gemfile, and run bundle install:
 
-    ```ruby
-    gem 'static_pages', :git => 'https://github.com/tortus/static_pages.git'
-    ```
+```ruby
+gem 'static_pages', :git => 'https://github.com/tortus/static_pages.git'
+```
 
 Add this line to the bottom of *config/routes.rb* (or elsewhere if you know what you're
 doing):
 
-    ```ruby
-    mount StaticPages::Engine, :at => '/'
-    ```
+```ruby
+mount StaticPages::Engine, :at => '/'
+```
 
 Change '/' to whatever path you would prefer pages being accessible at.
 
@@ -37,28 +37,28 @@ Linking to a Page
 
 Use the **static_pages.page_path** helper:
 
-    ```ruby
-    static_pages.page_path("page_template_name_here")
-    ```
+```ruby
+static_pages.page_path("page_template_name_here")
+```
 
 How it works
 ------------
 
 The engine uses the following routes:
 
-    ```ruby
-    match ':page(.:format)' => 'pages#show', :as => :page
-    root :to => 'pages#index'
-    ```
+```ruby
+match ':page(.:format)' => 'pages#show', :as => :page
+root :to => 'pages#index'
+```
 
 The controller functionality boils down to the following, after security
 checks:
 
-    ```ruby
-    def show
-      render params[:page]
-    end
-    ```
+```ruby
+def show
+  render params[:page]
+end
+```
 
 If the template isn't found, the ActionView::TemplateNotFound
 exception is caught and re-thrown as ActionController::RoutingError.
