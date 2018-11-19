@@ -1,6 +1,10 @@
 Static Pages Changelog
 ======================
 
+## Version 0.0.3 (WIP)
+
+* Update jquery-rails.
+
 ## Version 0.0.2
 
 * Update as many dependencies as possible.
