@@ -7,16 +7,16 @@ require "static_pages/version"
 Gem::Specification.new do |s|
   s.name        = "static_pages"
   s.version     = StaticPages::VERSION
-  s.authors     = ["Tortus Technologies"]
+  s.authors     = ["Tortus Tek Inc."]
   s.email       = ["support@tortus.com"]
-  s.homepage    = "https://github.com/tortustechnologies/static_pages"
+  s.homepage    = "https://github.com/tortus/static_pages"
   s.summary     = "Simple static pages engine for Rails 3.2"
-  s.description = "Simple static pages engine for Rails 3.2"
+  # s.description = "Simple static pages engine for Rails 3.2"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "rails", "~> 3.2.12"
+  s.add_dependency "rails", "~> 3.2"
   # s.add_dependency "jquery-rails"
 
   s.add_development_dependency "sqlite3"
